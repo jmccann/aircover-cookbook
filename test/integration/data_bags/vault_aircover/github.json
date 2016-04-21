@@ -1,3 +1,5 @@
 {
-  "remote_config": "https://github.com?client_id=000&client_secret=000&open=true&private_mode=true"
+  "url": "https://github.company.com",
+  "client": "github_client",
+  "secret": "github_secret"
 }

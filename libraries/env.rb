@@ -1,7 +1,7 @@
 module ChefAircover
   # Methods for generating drone container ENV from node attributes
   module Env
-    def drone_env
+    def aircover_env
       node['aircover']['config'].map { |k, v| "#{k.upcase}=#{v}" }
     end
   end

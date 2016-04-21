@@ -19,13 +19,11 @@ docker_image 'aircover' do
   tag node['aircover']['version']
 end
 
-remote_config = chef_vault_item(node['aircover']['vault'], 'github')['remote_config']
-
 docker_container 'aircover' do
   repo 'aircover/aircover'
   tag node['aircover']['version']
   port '80:8000'
-  env drone_env.push("REMOTE_CONFIG=#{remote_config}")
+  env aircover_env
   volumes ['/var/lib/aircover:/var/lib/aircover']
   restart_policy 'always'
   sensitive true

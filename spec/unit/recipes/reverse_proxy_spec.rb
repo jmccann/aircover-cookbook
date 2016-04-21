@@ -43,13 +43,8 @@ describe 'aircover::reverse_proxy' do
       expect(chef_run).to render_file('/etc/nginx/sites-available/default').with_content('ssl_certificate_key /etc/ssl/private/fauxhai.local.key;')
     end
 
-    it 'starts aircover container' do
-      expect(chef_run).to run_docker_container('aircover').with(repo: 'aircover/aircover', tag: 'latest', port: '8000:8000',
-                                                                env: ['DATABASE_DRIVER=sqlite3', 'DATABASE_CONFIG=/var/lib/drone/drone.sqlite',
-                                                                      'REMOTE_CONFIG=https://github.com?client_id=000&client_secret=000&open=true&private_mode=true'],
-                                                                volumes_binds: ['/var/lib/aircover:/var/lib/aircover'],
-                                                                restart_policy: 'always',
-                                                                sensitive: true)
+    it 'bind aircover container to port 8000' do
+      expect(chef_run).to run_docker_container('aircover').with(port: '8000:8000')
     end
   end
 end
