@@ -1,13 +1,25 @@
 # aircover
 
-Cookbook to deploy [aircover](https://aircover.co).
+Cookbook to deploy [Aircover](https://aircover.co).
 
 ## Supported Platforms
 
 Tested And Validated On
 - Ubuntu 15.04
 
-## Usage
+## Attributes
+* `['aircover']['version']` (default: `'latest'`) - The version of aircover to use
+* `['aircover']['vault']` (default: `'vault_aircover'`) - The vault name for aircover secrets
+* `['aircover']['docker']['version']` (default: `'1.9.1'`) - The version of Docker to install and use
+
+### Aircover Config
+You can drive the configuration of aircover itself through docker ENV that can be set by
+adding key/value pairs to `['aircover']['config']`.  The default database config does this.
+
+* `['aircover']['config']['database_driver']` (default: `'sqlite3'`) - Database Driver
+* `['aircover']['config']['database_config']` (default: `'/var/lib/drone/drone.sqlite'`) - Database Config
+
+## Recipes
 
 ### aircover::default
 
