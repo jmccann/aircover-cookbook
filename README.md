@@ -9,16 +9,31 @@ Tested And Validated On
 
 ## Usage
 
-TODO: Include usage patterns of any providers or recipes.
-
 ### aircover::default
 
-Include `aircover` in your run_list.
+This installs aircover fronted by http directly from the container.
+
+Include `aircover::default` in your run_list.
 
 ```json
 {
   "run_list": [
     "recipe[aircover::default]"
+  ]
+}
+```
+
+### aircover::reverse_proxy
+
+This installs aircover, deploys certificates, installs NGINX and configures it
+to do reverse proxy to the aircover container.  This allows https to aircover.
+
+Include `aircover::reverse_proxy` in your run_list.
+
+```json
+{
+  "run_list": [
+    "recipe[aircover::reverse_proxy]"
   ]
 }
 ```
