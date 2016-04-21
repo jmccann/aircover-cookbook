@@ -3,6 +3,6 @@ describe 'aircover::default' do
   # https://docs.chef.io/inspec_reference.html
 
   it 'starts aircover' do
-    expect(command("curl -s http://localhost | grep '<title>Aircover</title>'").exit_status).to eq 0
+    expect(command("curl -k -s https://localhost | grep '<title>Aircover</title>'").exit_status).to eq 0
   end
 end

@@ -9,4 +9,6 @@ issues_url       'https://github.com/jmccann/aircover-cookbook/issues'
 version          '0.1.0'
 
 depends 'docker', '2.6.8'
-depends 'chef-vault'
+depends 'chef-vault', '~> 1.3'
+depends 'nginx', '~> 2.7'
+depends 'certificate', '~> 1.0'

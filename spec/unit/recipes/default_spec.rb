@@ -7,7 +7,7 @@
 require 'spec_helper'
 
 describe 'aircover::default' do
-  context 'When all attributes are default, on an unspecified platform' do
+  context 'When all attributes are default, on ubuntu-15.04' do
     cached(:chef_run) do
       runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '15.04') do |_node, server|
         inject_databags server
