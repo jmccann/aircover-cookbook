@@ -7,8 +7,7 @@
 include_recipe 'chef-vault::default'
 
 docker_service 'default' do
-  version node['aircover']['docker']['version']
-  install_method 'binary'
+  version node['aircover']['docker']['version'] unless node['aircover']['docker']['version'].nil?
   host ['unix:///var/run/docker.sock']
   storage_driver 'aufs'
   action [:create, :start]
