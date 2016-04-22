@@ -5,6 +5,7 @@
 # Copyright (c) 2016 Jacob McCann, All Rights Reserved.
 
 include_recipe 'chef-vault::default'
+include_recipe 'aircover::_aufs'
 
 docker_service 'default' do
   version node['aircover']['docker']['version'] unless node['aircover']['docker']['version'].nil?
