@@ -12,6 +12,8 @@ docker_service 'default' do
   host ['unix:///var/run/docker.sock']
   storage_driver 'aufs'
   action [:create, :start]
+  retries 3
+  retry_delay 5
 end
 
 docker_image 'aircover' do
